@@ -1,8 +1,8 @@
 /** @format */
 
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const UserSchema = new mongoose.Schena({
+const UserSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true,
@@ -20,9 +20,9 @@ const UserSchema = new mongoose.Schena({
 		type: String,
 	},
 	date: {
-		type: Data,
+		type: Date,
 		default: Date.now,
 	},
-});
+})
 
-module.exports = User = mongoose.model('user', UserSchema);
+module.exports = User = mongoose.model('user', UserSchema)
