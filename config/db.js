@@ -1,5 +1,9 @@
 /** @format */
 
+//Userkey for testing
+
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWVkZmZmZTc1YWY5MjA2MDRkYWExNDRiIn0sImlhdCI6MTU5MTczODM0MywiZXhwIjoxNTkyMDk4MzQzfQ.wvWfxC3Gp3PXLYV4bUZPHQiE8725QdiltGmzNk8XY6I
+
 const mongoose = require('mongoose')
 //our config file
 const config = require('config')
