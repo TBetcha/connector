@@ -9,6 +9,7 @@ const Profile = require('../../models/Profile')
 const auth = require('../../middleware/auth')
 const User = require('../../models/User')
 const { check, validator, validationResult } = require('express-validator')
+const { json } = require('express')
 //@route    GET api/profile/me
 //@desc     Get current user profile
 //@access   private
@@ -165,5 +166,45 @@ router.delete('/', auth, async (req, res) => {
 		res.status(500).send('Server Error')
 	}
 })
+//@route    PUT api/profile/experience
+//@desc     add profile experience
+//@access   private
+
+router.put(
+	'/experience',
+	[
+		auth,
+		[
+			check('title', 'Title  is required').not().isEmpty(),
+			check('company', 'Title is required').not().isEmpty(),
+			check('from', 'date is required').not().isEmpty(),
+		],
+	],
+	async (req, res) => {
+		const errors = validationResult(req)
+		if (!errors.isEmpty()) {
+			return res.status(400).json({ errors: errors.array() })
+		}
+		const { title, company, location, from, to, current, description } = req.body
+		const newExp = {
+			title,
+			company,
+			location,
+			from,
+			to,
+			current,
+			description,
+		}
+		try {
+			const profile = await Profile.findOne({ user: req.user.id })
+			profile.experience.unshift(newExp)
+			await profile.save()
+			res.json(profile)
+		} catch (err) {
+			console.error(err.message)
+			res.status(500).send('Server Error')
+		}
+	}
+)
 
 module.exports = router
