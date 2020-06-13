@@ -1,4 +1,6 @@
 {
 	"mongoURI": "mongodb+srv://Tbetcha:Rollout3@devconnector-zrtzz.mongodb.net/<dbname>?retryWrites=true&w=majority",
-	"jwtSecret": "mysecrettoken"
+	"jwtSecret": "mysecrettoken",
+	"githubClientId": "ea8fe42045e8d4fb0287",
+	"githubSecret": "4a4f4097b318e8ee4cab46bef68a4798e82a2ccf"
 }
