@@ -1,5 +1,8 @@
 /** @format */
 
 import { combineReducers } from 'redux'
+import alert from './alert'
 
-export default combineReducers({})
+export default combineReducers({
+	alert,
+})
